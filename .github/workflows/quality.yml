@@ -36,7 +36,13 @@ jobs:
       - name: PHPStan
         run: php -dxdebug.mode=off vendor/bin/phpstan analyse
       - name: PHP CS Fixer
-        run: php -dxdebug.mode=off vendor/bin/php-cs-fixer fix --dry-run --diff
+        run: |
+          PHP_VERSION=$(php -r "echo PHP_VERSION_ID;")
+          if [ "$PHP_VERSION" -gt "80200" ]; then
+            echo "PHP CS Fixer is skipped because PHP version is 8.2+"
+          else
+            php -dxdebug.mode=off vendor/bin/php-cs-fixer fix --dry-run --diff  
+          fi
       - name: Code Sniffer
         run: php -dxdebug.mode=off vendor/bin/phpcs
       - name: Codecov
