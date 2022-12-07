@@ -12,8 +12,7 @@ use Psr\Http\Client\ClientExceptionInterface;
 use RuntimeException;
 
 /**
- * @see    HistoryPsrHttpClientDecorator
- * @covers \Mingalevme\PsrHttpClientStubs\HistoryPsrHttpClientDecorator
+ * @see HistoryPsrHttpClientDecorator
  */
 final class HistoryPsrHttpClientDecoratorTest extends TestCase
 {

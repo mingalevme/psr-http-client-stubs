@@ -10,8 +10,7 @@ use Psr\Http\Client\ClientExceptionInterface;
 use RuntimeException;
 
 /**
- * @see    StaticResponseMapPsrHttpClient
- * @covers \Mingalevme\PsrHttpClientStubs\StaticResponseMapPsrHttpClient
+ * @see StaticResponseMapPsrHttpClient
  */
 final class StaticResponseMapPsrHttpClientTest extends TestCase
 {

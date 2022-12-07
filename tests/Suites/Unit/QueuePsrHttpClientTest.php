@@ -10,8 +10,7 @@ use Psr\Http\Client\ClientExceptionInterface;
 use RuntimeException;
 
 /**
- * @see    QueuePsrHttpClient
- * @covers \Mingalevme\PsrHttpClientStubs\QueuePsrHttpClient
+ * @see QueuePsrHttpClient
  */
 final class QueuePsrHttpClientTest extends TestCase
 {

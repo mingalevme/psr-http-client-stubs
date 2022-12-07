@@ -10,8 +10,7 @@ use Mingalevme\Tests\PsrHttpClientStubs\TestCase;
 use Psr\Http\Client\ClientExceptionInterface;
 
 /**
- * @see    StaticResponsePsrHttpClient
- * @covers \Mingalevme\PsrHttpClientStubs\StaticResponsePsrHttpClient
+ * @see StaticResponsePsrHttpClient
  */
 final class StaticResponsePsrHttpClientTest extends TestCase
 {
