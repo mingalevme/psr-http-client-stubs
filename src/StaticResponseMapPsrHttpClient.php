@@ -19,19 +19,22 @@ final class StaticResponseMapPsrHttpClient implements ClientInterface
     /** @var array<string, ResponseInterface|ClientExceptionInterface> */
     private array $map = [];
 
-    public function add(string $method, string $uri, ResponseInterface|ClientExceptionInterface $result): void
+    public function add(string $method, string $uri, ResponseInterface|ClientExceptionInterface $result): self
     {
         $this->map[$this->buildKey($method, $uri)] = $result;
+        return $this;
     }
 
-    public function addRequest(RequestInterface $request, ResponseInterface|ClientExceptionInterface $result): void
+    public function addRequest(RequestInterface $request, ResponseInterface|ClientExceptionInterface $result): self
     {
         $this->map[$this->buildKey($request->getMethod(), (string)$request->getUri())] = $result;
+        return $this;
     }
 
-    public function remove(string $method, string $uri): void
+    public function remove(string $method, string $uri): self
     {
         unset($this->map[$this->buildKey($method, $uri)]);
+        return $this;
     }
 
     public function sendRequest(RequestInterface $request): ResponseInterface
