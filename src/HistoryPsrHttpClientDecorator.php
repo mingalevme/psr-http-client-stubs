@@ -18,12 +18,7 @@ final class HistoryPsrHttpClientDecorator implements ClientInterface
     private ClientInterface $psrHttpClient;
 
     /**
-     * @var list<array{
-     *     request: RequestInterface,
-     *     result: ResponseInterface|ClientExceptionInterface,
-     *     response: ?ResponseInterface,
-     *     exception: ?ClientExceptionInterface
-     * }>
+     * @var list<HistoryItem>
      */
     private array $history = [];
 
@@ -44,12 +39,7 @@ final class HistoryPsrHttpClientDecorator implements ClientInterface
 
     private function addResponse(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $this->history[] = [
-            'request' => $request,
-            'result' => $response,
-            'response' => $response,
-            'exception' => null,
-        ];
+        $this->history[] = new HistoryItem($request, $response, $response, null);
         return $response;
     }
 
@@ -59,22 +49,12 @@ final class HistoryPsrHttpClientDecorator implements ClientInterface
      */
     private function addException(RequestInterface $request, ClientExceptionInterface $e): void
     {
-        $this->history[] = [
-            'request' => $request,
-            'result' => $e,
-            'response' => null,
-            'exception' => $e,
-        ];
+        $this->history[] = new HistoryItem($request, $e, null, $e);
         throw $e;
     }
 
     /**
-     * @return list<array{
-     *     request: RequestInterface,
-     *     result: ResponseInterface|ClientExceptionInterface,
-     *     response: ?ResponseInterface,
-     *     exception: ?ClientExceptionInterface
-     * }>
+     * @return list<HistoryItem>
      */
     public function getHistory(): array
     {
