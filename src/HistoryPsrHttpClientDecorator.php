@@ -60,4 +60,9 @@ final class HistoryPsrHttpClientDecorator implements ClientInterface
     {
         return $this->history;
     }
+
+    public function clear(): void
+    {
+        $this->history = [];
+    }
 }

@@ -57,5 +57,7 @@ final class HistoryPsrHttpClientDecoratorTest extends TestCase
         self::assertSame($exception2, $history[1]->getResult());
         self::assertSame(null, $history[1]->getResponse());
         self::assertSame($exception2, $history[1]->getException());
+        // Clear
+        self::assertCount(2, $decorator->getHistory());
     }
 }
