@@ -11,6 +11,7 @@ Stubs:
 - **QueuePsrHttpClientTest**
 - **StaticResponseMapPsrHttpClientTest**
 - **StaticResponsePsrHttpClient**
+- **NullPsrHttpClient**
 
 Decorators:
 - **HistoryPsrHttpClientDecorator**
