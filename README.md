@@ -16,4 +16,10 @@ Stubs:
 Decorators:
 - **HistoryPsrHttpClientDecorator**
 
+Code quality:
+- 100% code coverage
+- Psalm at max level
+- PHPStan at max level
+- PHP CS Fixer
+
 See tests for examples.
